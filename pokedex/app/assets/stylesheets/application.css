@@ -13,3 +13,34 @@
  *= require_tree .
  *= require_self
  */
+
+.card {
+  margin-bottom: 30px!important;
+}
+
+.btn:visited {
+  color: black!important;
+}
+
+.border-form{
+  border: 1px solid rgb(226, 226, 226);
+  border-radius: 5px;
+  padding: 30px!important;
+}
+
+.align-center {
+  text-align: center;
+}
+
+.align-right {
+  text-align: right;
+}
+
+.font-with-color {
+  background-color: #30A7D9;
+  border-radius: 10px;
+  width: 100%;
+  padding: 30px;
+  margin-bottom: 30px;
+  color: #fff;
+}

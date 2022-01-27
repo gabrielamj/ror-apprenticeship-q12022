@@ -1,14 +1,17 @@
-<p id="notice"><%= notice %></p>
+<!-- ><p id="notice"><%= notice %></p>-->
 
-<p>
-  <strong>Name:</strong>
-  <%= @ability.name %>
-</p>
+<div class="container border-form">
+  <h1 class="align-center">Everything went good with <%= @ability.name.capitalize %> ;)!</h1>
+  <p>
 
-<p>
-  <strong>Pokemon:</strong>
-  <%= @ability.pokemon_id %>
-</p>
+  <div class="align-center">
+    <%= link_to 'Edit', edit_ability_path(@ability), class: "btn btn-warning" %>
+  </div>
 
-<%= link_to 'Edit', edit_ability_path(@ability) %> |
-<%= link_to 'Back', abilities_path %>
+  <div class="align-right">
+    <%= link_to 'Back', abilities_path, class:"btn btn-outline-primary"%>
+  </div>
+  
+  
+
+</div>

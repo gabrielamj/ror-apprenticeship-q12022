@@ -1,5 +1,9 @@
-<h1>New Poketype</h1>
+<div class="container border-form">
+    <h1 class="align-center">New Poketype</h1>
 
-<%= render 'form', poketype: @poketype %>
+    <%= render 'form', poketype: @poketype %>
 
-<%= link_to 'Back', poketypes_path %>
+    <div class="align-right">
+        <%= link_to 'Back', poketypes_path, class:"btn btn-outline-primary" %>
+    </div>
+</div>

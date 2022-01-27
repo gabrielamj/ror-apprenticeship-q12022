@@ -1,5 +1,6 @@
 class AbilitiesController < ApplicationController
   before_action :set_ability, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!, except: %i[index]
 
   # GET /abilities or /abilities.json
   def index

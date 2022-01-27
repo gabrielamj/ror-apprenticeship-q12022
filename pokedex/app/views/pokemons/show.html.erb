@@ -1,14 +1,48 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <div calss="raw">
+    <div class="card mb-3" >
+      <div class="row g-0">
+        <div class="col-md-6">
+          <img src="<%= @pokemon.img %>" class="img-fluid rounded-start" alt="...">
+        </div>
+        <div class="col-md-6">
+          <div class="card-body">
+            <h1 class=" align-center"><%= @pokemon.name.capitalize %> No. <%= @pokemon.id %></h1>
+            <p class="card-text">
+              <strong>Types:</strong>
+              <% @pokemon.poketypes.each do |poketype| %>
+                <%= link_to poketype.name, poketype_path(poketype), class: "badge bg-info text-dark" %>
+              <%end%>
+            </p>
+            <div class="font-with-color">
+              <p class="card-text">
+                <strong>Base experience:</strong>
+                <%= @pokemon.base_experience %>
+              </p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @pokemon.name %>
-</p>
+              <p class="card-text">
+                <strong>Height:</strong>
+                <%= @pokemon.height %>
+              </p>
 
-<p>
-  <strong>Poketype:</strong>
-  <%= @pokemon.poketype %>
-</p>
-
-<%= link_to 'Edit', edit_pokemon_path(@pokemon) %> |
-<%= link_to 'Back', pokemons_path %>
+              <p class="card-text">
+                <strong>Weight:</strong>
+                <%= @pokemon.weight %>
+              </p>
+            </div>
+            
+            <div class="align-center">
+              <%= link_to "Edit #{@pokemon.name.capitalize}", edit_pokemon_path(@pokemon), class: "btn btn-warning" %>
+              <%= link_to " Delete #{@pokemon.name.capitalize}", pokemon_path(@pokemon), method: "delete", data: {confirm: "Are you sure you want to do this?"}, class: "btn btn-danger" %>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="align-right">
+      <%= link_to 'Back', pokemons_path, class:"btn btn-primary" %>  
+    </div>
+  </div>
+</div>

@@ -1,5 +1,9 @@
-<h1>New Ability</h1>
+<div class="container border-form">
+  <h1 class="align-center">New Ability</h1>
 
-<%= render 'form', ability: @ability %>
-
-<%= link_to 'Back', abilities_path %>
+  <%= render 'form', ability: @ability %>
+  
+  <div class="align-right">
+    <%= link_to 'Back', abilities_path, class:"btn btn-outline-primary"%>
+  </div>
+</div>

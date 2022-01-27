@@ -13,10 +13,31 @@
 
   <div class="field">
     <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, class:"form-control" %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="field">
+    <%= form.label :base_experience %>
+    <%= form.text_field :base_experience, class:"form-control" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :height %>
+    <%= form.text_field :height, class:"form-control" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :weight%>
+    <%= form.text_field :weight, class:"form-control"%>
+  </div>
+
+  <div class="field">
+    <%= form.label :img%>
+    <%= form.text_field :img, class:"form-control"%>
+  </div>
+
+  <div class="align-center">
+    <br><br>
+    <%= form.submit class:"actions btn btn-warning"%>
   </div>
 <% end %>

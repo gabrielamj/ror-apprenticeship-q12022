@@ -1,9 +1,15 @@
-<p id="notice"><%= notice %></p>
+<!--<p id="notice"><%= notice %></p> -->
 
-<p>
-  <strong>Name:</strong>
-  <%= @poketype.name %>
-</p>
+<div class="container border-form">
 
-<%= link_to 'Edit', edit_poketype_path(@poketype) %> |
-<%= link_to 'Back', poketypes_path %>
+  <h1 class="align-center">Everything went well with <%= @poketype.name.capitalize %> ;)! </h1>
+
+  <div class="align-center">
+    <%= link_to 'Edit', edit_poketype_path(@poketype), class: "btn btn-warning" %>
+  </div>
+
+  <div class="align-right">
+    <%= link_to 'Back', poketypes_path, class:"btn btn-outline-primary" %>
+  </div>
+    
+</div>

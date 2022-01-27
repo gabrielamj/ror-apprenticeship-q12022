@@ -1,29 +1,37 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <p id="notice"><%= notice %></p>
 
-<h1>Abilities</h1>
+  <h1>Abilities</h1>
+  <div class="row p-4">
+    <div class="col-9"></div>
+    <div class="col-3">
+      <%= link_to '+ New Ability', new_ability_path, class:"btn btn-success" %>
+    </div>
+  </div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Pokemon</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  
 
-  <tbody>
-    <% @abilities.each do |ability| %>
+  <table class="table table-striped table-hover">
+    <thead>
       <tr>
-        <td><%= ability.name %></td>
-        <td><%= ability.pokemon_id %></td>
-        <td><%= link_to 'Show', ability %></td>
-        <td><%= link_to 'Edit', edit_ability_path(ability) %></td>
-        <td><%= link_to 'Destroy', ability, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Name</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @abilities.each do |ability| %>
+        <tr>
+          <td><%= ability.name %></td>
+          <!-- <td><%= link_to 'Show', ability, class:"btn btn-primary" %></td>-->
+          <td><%= link_to 'Edit', edit_ability_path(ability), class:"btn btn-warning" %></td>
+          <td><%= link_to 'Destroy', ability, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<%= link_to 'New Ability', new_ability_path %>
+  <br>
+
+</div>
+

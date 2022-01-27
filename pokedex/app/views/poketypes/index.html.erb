@@ -1,27 +1,34 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <p id="notice"><%= notice %></p>
 
-<h1>Poketypes</h1>
+  <h1>Poketypes</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <div class="row p-4">
+    <div class="col-9"></div>
+    <div class="col-3">
+      <%= link_to '+ New Poketype', new_poketype_path, class:"btn btn-success" %>
+  </div>
 
-  <tbody>
-    <% @poketypes.each do |poketype| %>
+  <table class="table table-striped table-hover"> 
+    <thead>
       <tr>
-        <td><%= poketype.name %></td>
-        <td><%= link_to 'Show', poketype %></td>
-        <td><%= link_to 'Edit', edit_poketype_path(poketype) %></td>
-        <td><%= link_to 'Destroy', poketype, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Name</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @poketypes.each do |poketype| %>
+        <tr>
+          <td><%= poketype.name.capitalize %></td>
+          <!-- <td><%= link_to 'Show', poketype, class:"btn btn-primary" %></td> -->
+          <td><%= link_to 'Edit', edit_poketype_path(poketype), class:"btn btn-warning" %></td>
+          <td><%= link_to 'Destroy', poketype, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger"%></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<%= link_to 'New Poketype', new_poketype_path %>
+  <br>
+</div>
+

@@ -1,6 +1,10 @@
-<h1>Editing Ability</h1>
+<div class="container border-form">
+  <h1 class="align-center">Editing Ability</h1>
 
-<%= render 'form', ability: @ability %>
+  <%= render 'form', ability: @ability %>
 
-<%= link_to 'Show', @ability %> |
-<%= link_to 'Back', abilities_path %>
+  <div class="align-right">
+    <%= link_to 'Back', abilities_path, class:"btn btn-outline-primary" %>
+    <%= link_to 'Show', @ability, class:"btn btn-primary" %>
+  </div>
+</div>

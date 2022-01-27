@@ -1,5 +1,9 @@
-<h1>New Pokemon</h1>
+<div class="container border-form">
+  <h1 class="align-center">New Pokemon</h1>
 
-<%= render 'form', pokemon: @pokemon %>
+  <%= render 'form', pokemon: @pokemon %>
 
-<%= link_to 'Back', pokemons_path %>
+  <div class="align-right">
+    <%= link_to 'Back', pokemons_path, class:"btn btn-outline-primary" %>
+  </div>
+</div>

@@ -16,7 +16,6 @@ ActiveRecord::Schema.define(version: 2022_01_25_190639) do
   enable_extension "plpgsql"
 
   create_table "abilities", force: :cascade do |t|
-    t.integer "pokemon_id"
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

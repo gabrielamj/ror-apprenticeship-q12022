@@ -1,6 +1,12 @@
-<h1>Editing Pokemon</h1>
+<div class="container border-form">
+  <h1>Editing Pokemon</h1>
 
-<%= render 'form', pokemon: @pokemon %>
+  <%= render 'form', pokemon: @pokemon %>
+  <br><br>
 
-<%= link_to 'Show', @pokemon %> |
-<%= link_to 'Back', pokemons_path %>
+  <div class="align-right">
+    <%= link_to 'Back', pokemons_path, class:"btn btn-outline-primary" %>
+    <%= link_to 'Show', @pokemon , class:"btn btn-primary" %>
+  </div>
+    
+</div>
