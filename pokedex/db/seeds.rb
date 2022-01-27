@@ -9,7 +9,13 @@ result = JSON.parse response.to_str
 pokeindex = 1
 
 while true
-    response = RestClient.get("https://pokeapi.co/api/v2/pokemon/#{pokeindex}")
+    response = nil
+    begin 
+        response = RestClient.get("https://pokeapi.co/api/v2/pokemon/#{pokeindex}")
+    rescue StandardError => e
+        p "My error: #{e}. There aren't more pokemonts to store in your DB."
+        raise e
+    end
     if response.code != 200
         break
     end
@@ -52,5 +58,9 @@ while true
     end
 
     pokemon.save
+    p "#{result["name"]} has been added to your database."
     pokeindex += 1
 end
+
+p "#{pokeindex} pokemons have been added to your database"
+
