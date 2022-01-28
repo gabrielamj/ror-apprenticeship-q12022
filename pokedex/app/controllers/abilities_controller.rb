@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class AbilitiesController < ApplicationController
-  before_action :set_ability, only: %i[ show edit update destroy ]
+  before_action :set_ability, only: %i[show edit update destroy]
   before_action :authenticate_user!, except: %i[index]
 
   # GET /abilities or /abilities.json
@@ -8,8 +10,7 @@ class AbilitiesController < ApplicationController
   end
 
   # GET /abilities/1 or /abilities/1.json
-  def show
-  end
+  def show; end
 
   # GET /abilities/new
   def new
@@ -17,8 +18,7 @@ class AbilitiesController < ApplicationController
   end
 
   # GET /abilities/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /abilities or /abilities.json
   def create
@@ -26,7 +26,7 @@ class AbilitiesController < ApplicationController
 
     respond_to do |format|
       if @ability.save
-        format.html { redirect_to ability_url(@ability), notice: "Ability was successfully created." }
+        format.html { redirect_to ability_url(@ability), notice: 'Ability was successfully created.' }
         format.json { render :show, status: :created, location: @ability }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -39,7 +39,7 @@ class AbilitiesController < ApplicationController
   def update
     respond_to do |format|
       if @ability.update(ability_params)
-        format.html { redirect_to ability_url(@ability), notice: "Ability was successfully updated." }
+        format.html { redirect_to ability_url(@ability), notice: 'Ability was successfully updated.' }
         format.json { render :show, status: :ok, location: @ability }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -53,19 +53,20 @@ class AbilitiesController < ApplicationController
     @ability.destroy
 
     respond_to do |format|
-      format.html { redirect_to abilities_url, notice: "Ability was successfully destroyed." }
+      format.html { redirect_to abilities_url, notice: 'Ability was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_ability
-      @ability = Ability.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def ability_params
-      params.require(:ability).permit(:name, :pokemon_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_ability
+    @ability = Ability.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def ability_params
+    params.require(:ability).permit(:name, :pokemon_id)
+  end
 end

@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class PokemonsController < ApplicationController
-  before_action :set_pokemon, only: %i[ show edit update destroy ]
+  before_action :set_pokemon, only: %i[show edit update destroy]
   before_action :authenticate_user!, except: %i[index]
 
   # GET /pokemons or /pokemons.json
@@ -8,8 +10,7 @@ class PokemonsController < ApplicationController
   end
 
   # GET /pokemons/1 or /pokemons/1.json
-  def show
-  end
+  def show; end
 
   # GET /pokemons/new
   def new
@@ -17,8 +18,7 @@ class PokemonsController < ApplicationController
   end
 
   # GET /pokemons/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /pokemons or /pokemons.json
   def create
@@ -26,7 +26,7 @@ class PokemonsController < ApplicationController
 
     respond_to do |format|
       if @pokemon.save
-        format.html { redirect_to pokemon_url(@pokemon), notice: "Pokemon was successfully created." }
+        format.html { redirect_to pokemon_url(@pokemon), notice: 'Pokemon was successfully created.' }
         format.json { render :show, status: :created, location: @pokemon }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -39,7 +39,7 @@ class PokemonsController < ApplicationController
   def update
     respond_to do |format|
       if @pokemon.update(pokemon_params)
-        format.html { redirect_to pokemon_url(@pokemon), notice: "Pokemon was successfully updated." }
+        format.html { redirect_to pokemon_url(@pokemon), notice: 'Pokemon was successfully updated.' }
         format.json { render :show, status: :ok, location: @pokemon }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -53,19 +53,20 @@ class PokemonsController < ApplicationController
     @pokemon.destroy
 
     respond_to do |format|
-      format.html { redirect_to pokemons_url, notice: "Pokemon was successfully destroyed." }
+      format.html { redirect_to pokemons_url, notice: 'Pokemon was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_pokemon
-      @pokemon = Pokemon.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def pokemon_params
-      params.require(:pokemon).permit(:name, :base_experience, :height, :weight, :img)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_pokemon
+    @pokemon = Pokemon.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def pokemon_params
+    params.require(:pokemon).permit(:name, :base_experience, :height, :weight, :img)
+  end
 end

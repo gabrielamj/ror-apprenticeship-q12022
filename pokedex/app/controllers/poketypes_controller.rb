@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class PoketypesController < ApplicationController
-  before_action :set_poketype, only: %i[ show edit update destroy ]
+  before_action :set_poketype, only: %i[show edit update destroy]
   before_action :authenticate_user!, except: %i[index]
 
   # GET /poketypes or /poketypes.json
@@ -8,8 +10,7 @@ class PoketypesController < ApplicationController
   end
 
   # GET /poketypes/1 or /poketypes/1.json
-  def show
-  end
+  def show; end
 
   # GET /poketypes/new
   def new
@@ -17,8 +18,7 @@ class PoketypesController < ApplicationController
   end
 
   # GET /poketypes/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /poketypes or /poketypes.json
   def create
@@ -26,7 +26,7 @@ class PoketypesController < ApplicationController
 
     respond_to do |format|
       if @poketype.save
-        format.html { redirect_to poketype_url(@poketype), notice: "Poketype was successfully created." }
+        format.html { redirect_to poketype_url(@poketype), notice: 'Poketype was successfully created.' }
         format.json { render :show, status: :created, location: @poketype }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -39,7 +39,7 @@ class PoketypesController < ApplicationController
   def update
     respond_to do |format|
       if @poketype.update(poketype_params)
-        format.html { redirect_to poketype_url(@poketype), notice: "Poketype was successfully updated." }
+        format.html { redirect_to poketype_url(@poketype), notice: 'Poketype was successfully updated.' }
         format.json { render :show, status: :ok, location: @poketype }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -53,19 +53,20 @@ class PoketypesController < ApplicationController
     @poketype.destroy
 
     respond_to do |format|
-      format.html { redirect_to poketypes_url, notice: "Poketype was successfully destroyed." }
+      format.html { redirect_to poketypes_url, notice: 'Poketype was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_poketype
-      @poketype = Poketype.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def poketype_params
-      params.require(:poketype).permit(:name)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_poketype
+    @poketype = Poketype.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def poketype_params
+    params.require(:poketype).permit(:name)
+  end
 end
